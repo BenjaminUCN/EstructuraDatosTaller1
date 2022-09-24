@@ -1,4 +1,6 @@
-#include <iostream>
+//
+// Created by José Miguel Carrillo Rojas on 24-09-22.
+//
 using namespace std;
 
 void consulta()
@@ -10,17 +12,9 @@ void consulta()
     cout<<  "4. Volver al menú  \n";
 }
 
-void agregar(){
-
-}
-
-void modificar(){
-
-}
-
-int main()
+int main
 {
-    bool condicion = true;
+    boolean condicion = true;
     int res;
     while(condicion)
     {
@@ -48,5 +42,4 @@ int main()
         }
     }
     return 0;
- }
-
+ };
