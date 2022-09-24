@@ -3,6 +3,14 @@
 //
 using namespace std;
 
+void consulta()
+{
+    cout<<  "¿Que tipo de consulta desea hacer?     \n";
+    cout<<  "1. Consultar un ramo  \n";
+    cout<<  "2. Consultar un profesor  \n";
+    cout<<  "3. Consultar un alu,no     \n";
+    cout<<  "4. Volver al menú  \n";
+}
 
 int main
 {
