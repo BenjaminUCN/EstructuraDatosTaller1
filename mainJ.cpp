@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //
 // Created by José Miguel Carrillo Rojas on 24-09-22.
 //
@@ -43,3 +44,11 @@ int main
     }
     return 0;
  };
+=======
+#include <iostream>
+using namespace std;
+
+int main(){
+    cout<<"hello world"<<endl;
+}
+>>>>>>> origin/main
