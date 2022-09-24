@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-//
-// Created by José Miguel Carrillo Rojas on 24-09-22.
-//
+#include <iostream>
 using namespace std;
 
 void consulta()
@@ -13,9 +10,17 @@ void consulta()
     cout<<  "4. Volver al menú  \n";
 }
 
-int main
+void agregar(){
+
+}
+
+void modificar(){
+
+}
+
+int main()
 {
-    boolean condicion = true;
+    bool condicion = true;
     int res;
     while(condicion)
     {
@@ -43,12 +48,5 @@ int main
         }
     }
     return 0;
- };
-=======
-#include <iostream>
-using namespace std;
+ }
 
-int main(){
-    cout<<"hello world"<<endl;
-}
->>>>>>> origin/main
