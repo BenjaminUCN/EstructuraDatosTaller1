@@ -70,7 +70,7 @@ void insertarLista(Nodo *&lista, int n)
     while((aux1 != NULL) && (aux1->dato < n))
     {
         aux2 = aux1;
-        aux1 = aux1->siguiente;
+        aux1 = aux1->siguiente; // (*aux1).siguiente 
     }
 
     if(lista == aux1)

@@ -1,8 +1,14 @@
 #include"Estudent.h"
 using namespace std;
 
+
 Estudent::Estudent()
 {
+};
+
+Estudent::Estudent(string _name)
+{
+    name = _name;
 };
 
 int Estudent::getSemester()
