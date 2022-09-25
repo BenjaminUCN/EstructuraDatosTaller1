@@ -29,6 +29,7 @@ int main()
         cout<<"3. Buscar elemento de la lista\n";
         cout<<"4. Eliminar elemento de la lista\n";
         cout<<"5. Salir\n";
+        cout<<"Bye Bye\n";
         cout<<"Opcion: ";
         cin>>opcion;
 

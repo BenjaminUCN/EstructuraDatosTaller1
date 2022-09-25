@@ -9,6 +9,7 @@ void consulta()
     cout<<  "2. Consultar un profesor\n";
     cout<<  "3. Consultar un alumno\n";
     cout<<  "presione cualquier otra numero para salir"<<endl;
+    cout<<  "ADIOS  \n";
     cin>> respuesta;
     switch (respuesta) {
         case 1:
