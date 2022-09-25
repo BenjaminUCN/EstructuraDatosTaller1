@@ -50,3 +50,10 @@ void Estudent::setSurname(string _surname)
 {
     surname = _surname;
 };
+
+void Estudent::mostrar()
+{
+    cout<<  "Nombre: "  <<  name    <<  endl;
+    cout<<  "Apellido: "    <<  surname     <<  endl;
+    cout<<  endl;
+}

@@ -17,6 +17,7 @@ class Estudent
         int getAge();
         string getName();
         string getSurname();
+        void mostrar();
         void setSemester(int _semester);
         void setAge(int _age);
         void setName(string _name);
