@@ -11,7 +11,8 @@ class Estudent
         string name, surname;
         Course courses[5];
     public:
-        Estudent(); // Constructor
+        Estudent();
+        Estudent(string _name); // Constructor
         int getSemester();
         int getAge();
         string getName();
