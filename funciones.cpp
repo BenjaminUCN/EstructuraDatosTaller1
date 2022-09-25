@@ -1,14 +1,12 @@
 #include <array>
 #include <vector>
 #include <iostream>
+#include "Estudent.h"
+#include "Course.h"
+
 using namespace std;
 
-bool agAl(int, string, string, int, Course){
-    for(int i = 0; i < size(alumnos); i++)
-    {
-        if(alumnos[i])
-    }
-}
+bool agAl(int, string, string, int, Course);
 
 bool agPr(string, string, Course);
 
