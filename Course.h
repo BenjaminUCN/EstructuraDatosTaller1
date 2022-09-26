@@ -14,4 +14,5 @@ class Course{
         void setName(string _name);
         void setCareer(string _career);
         void setClassroom(string _classroom);
+        void mostrar();
 };

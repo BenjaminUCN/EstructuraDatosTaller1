@@ -17,18 +17,6 @@ int main()
     Profesor p_aux;
 
 
-
-    e_aux.setName("Roberto");
-    e_aux.setSurname("Rpjas");
-    estudiantes->add(e_aux);
-
-    e_aux.setName("Tomatican");
-    e_aux.setSurname("Con atun");
-    estudiantes->add(e_aux);
-
-
-
-
     bool salir = false;
     int res;
     while(!salir)
@@ -58,6 +46,11 @@ int main()
 
             case 4:
                 salir=true;
+                break;
+
+            default:
+                cout<<  "Ingrese una opcion valida  \n";
+
 
         }
     }

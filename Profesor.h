@@ -10,6 +10,11 @@ class Profesor{
         Course courses[3];
     public:
         Profesor(); // Constructor
+        void setName(string);
+        void setSurname(string);
+        string getName();
+        string getSurname();
+        void mostrar();
 
 
 };
