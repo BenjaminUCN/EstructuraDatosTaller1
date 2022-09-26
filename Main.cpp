@@ -9,29 +9,31 @@ using namespace std;
 int main()
 {
 
-    NodeList<Estudent> estudiantes;
-    NodeList<Profesor> profesores;
-    NodeList<Course> cursos;
+    NodeList<Estudent>* estudiantes = new NodeList<Estudent>();
+    NodeList<Profesor>* profesores = new NodeList<Profesor>();;
+    NodeList<Course>* cursos = new NodeList<Course>();;
     Estudent e_aux;
     Course c_aux;
     Profesor p_aux;
 
-    e_aux.setName("Jose");
-    e_aux.setSurname("Miguel");
-    estudiantes.add(e_aux);
+
 
     e_aux.setName("Roberto");
     e_aux.setSurname("Rpjas");
-    estudiantes.add(e_aux);
+    estudiantes->add(e_aux);
 
     e_aux.setName("Tomatican");
     e_aux.setSurname("Con atun");
-    estudiantes.add(e_aux);
+    estudiantes->add(e_aux);
+
+
+
 
     bool salir = false;
     int res;
     while(!salir)
     {
+        cout<<"Posicion de estudiantes: " <<estudiantes<<endl;
         cout<<"------------: MENU :------------"<<endl;
         cout<<"Que tipo de operacion desea hacer?\n";
         cout<<"1. Realizar una consulta\n";
@@ -43,15 +45,15 @@ int main()
         switch(res)
         {
             case 1:
-                consulta(estudiantes);
+                consulta(estudiantes, profesores, cursos);
                 break;
 
             case 2:
-                agregar();
+                agregar(estudiantes, profesores, cursos);
                 break;
 
             case 3:
-                modificar();
+                modificar(estudiantes, profesores, cursos);
                 break;
 
             case 4:
