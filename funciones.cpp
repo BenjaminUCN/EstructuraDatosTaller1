@@ -148,7 +148,7 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
 
 void modifyEstudent(NodeList<Estudent>* estudiantes)
 {
-
+    //update or delete?
 }
 
 void updateEstudent(NodeList<Estudent>* estudiantes){
