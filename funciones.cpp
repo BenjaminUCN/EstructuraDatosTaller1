@@ -139,19 +139,30 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
             break;
 
         case 3:
-            updateEstudent(estudiantes);
+            modifyEstudent(estudiantes);
             break;
     }
 
 }
 
 
+string* askEstudentData(){
+    string a[2];
+
+    string name, surname;
+    cout<<"ingrese nombre del Estudiante:"<<endl;
+    cout<<">";cin>> name;
+    cout<<"ingrese apellido del Estudiante:"<<endl;
+    cout<<">";cin>> surname;
+
+    a[0] = name;
+    a[1] = surname;
+
+    return a;
+};
+
 void modifyEstudent(NodeList<Estudent>* estudiantes)
 {
-    //update or delete?
-}
-
-void updateEstudent(NodeList<Estudent>* estudiantes){
     string name, surname;
     cout<<"ingrese nombre del Estudiante:"<<endl;
     cout<<">";cin>> name;
@@ -160,6 +171,10 @@ void updateEstudent(NodeList<Estudent>* estudiantes){
 
     Estudent* e = b_est(name, surname, estudiantes);
 
+    updateEstudent(e);
+}
+
+void updateEstudent(Estudent* e){
     if(e!=NULL){
         int opcion;
         do{
@@ -176,14 +191,16 @@ void updateEstudent(NodeList<Estudent>* estudiantes){
             switch (opcion)
             {
             case 1:
+                {string name;
                 cout<<"ingrese un nuevo nombre:"<<endl;
                 cout<<">";cin>> name;
-                e->setName(name);
+                e->setName(name);}
                 break;
             case 2:
+                {string surname;
                 cout<<"ingrese un nuevo apellido:"<<endl;
                 cout<<">";cin>> surname;
-                e->setSurname(surname);
+                e->setSurname(surname);}
                 break;
             case 3:
                 {int age;
@@ -200,12 +217,19 @@ void updateEstudent(NodeList<Estudent>* estudiantes){
                 break;
             case 5:
                 {
-                //mostrar ramos
-                //
-                string courseName;
-                cout<<"ingrese el nombre del ramo:"<<endl;
-                cout<<">";cin>> courseName;
-                //
+                e->mostrarRamos();
+                int op;
+                cout<<" Que desea hacer?"<<endl;
+                cout<<"1. Agregar un ramo"<<endl;
+                cout<<"2. Eliminar un ramo"<<endl;
+                cout<<"3. Volver"<<endl;
+                cout<<">";cin>> op;
+                
+
+                int courseIndex;
+                cout<<"Elija una opcion:"<<endl;
+                cout<<">";cin>> courseIndex;
+                e->courses.remove(courseIndex);
                 }
                 break;
             default:

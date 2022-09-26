@@ -1,6 +1,7 @@
 #include<string>
 #include<iostream>
 #include"Course.h"
+#include"Nodelist.h"
 #pragma once
 using namespace std;
 
@@ -9,7 +10,8 @@ class Estudent
     private: // Atributos
         int semester, age;
         string name, surname;
-        Course courses[5];
+        Course c;
+        NodeList<Course> courses;
     public:
         Estudent();
         Estudent(string _name); // Constructor
@@ -22,5 +24,7 @@ class Estudent
         void setAge(int _age);
         void setName(string _name);
         void setSurname(string _surname);
+        Course* getCourse(int index);
+        void mostrarRamos();
 
 };

@@ -1,4 +1,5 @@
 #include"Estudent.h"
+#include"Course.h"
 using namespace std;
 
 
@@ -57,3 +58,16 @@ void Estudent::mostrar()
     cout<<  "Apellido: "    <<  surname     <<  endl;
     cout<<  endl;
 }
+
+void Estudent::mostrarRamos()
+{
+    for (int i = 0; i < courses.size; i++)
+    {
+        cout<<i+1<<". "<<courses[i]->getName()<<endl;
+    }
+    
+};
+
+Course* Estudent::getCourse(int index){
+    return courses[index];
+};
