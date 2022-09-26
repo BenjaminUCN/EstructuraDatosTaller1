@@ -1,6 +1,7 @@
 #include <array>
 #include <vector>
 #include <iostream>
+#include <string>
 #include "Estudent.h"
 #include "Course.h"
 #include "Profesor.h"
@@ -230,6 +231,77 @@ void agregar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, No
     } while(condicion);
 
 }
+
+void modificarRamo(NodeList<Course>* cursos, Course* c_aux)
+{
+    {
+        int resp;
+        cout<<"que informacion desea cambiar? \n";
+        cout<<"1. Modificar nombre del ramo\n";
+        cout<<"2. Modificar carrera del ramo\n";
+        cout<<"3. Modificar sala del ramo\n";
+        cout<<">"; cin>>resp;
+        switch (resp) {
+            case 1:
+            {
+                cout << "Ingrese el nuevo nombre para el ramo" << endl;
+                string newName;cout << ">";cin >> newName;int valor;
+                if (newName != c_aux->getName()) {
+                    for (int i = 0; i < cursos->size; i++) {
+                        if (cursos->get(i)->getName() == newName) {
+                            cout << "nombre ya registrado";
+                            valor = -1;
+                        }
+                        if (cursos->get(i)->getName() == c_aux->getName()) { valor = i; }
+                    }
+                    if (valor > -1) { cursos->get(valor)->setName(newName); }
+                }
+                break;
+            }
+            case 2:
+            {
+                cout << "Ingrese el nombre de la carrera" << endl;
+                string newName;cout << ">";cin >> newName;int valor;
+                if (newName != c_aux->getCareer()) {
+                    for (int i = 0; i < cursos->size; i++) {
+                        if (cursos->get(i)->getName() == c_aux->getName())
+                        {
+                            cursos->get(i)->setCareer(newName);
+                        }
+                    }
+                }
+                break;
+            }
+            case 3:
+            {
+                cout << "Ingrese la sala" << endl;
+                string newName;cout << ">";cin >> newName;int valor;
+                if (newName != c_aux->getClassroom()) {
+                    for (int i = 0; i < cursos->size; i++) {
+                        if (cursos->get(i)->getName() == c_aux->getName())
+                        {
+                            cursos->get(i)->setClassroom(newName);
+                        }
+                    }
+                }
+                break;
+            }
+            default:
+                cout<<"intente nuevamente"<<endl;
+        }
+    }
+}
+
+void modificarEstudiante(NodeList<Estudent>* estudiantes, Estudent* e_aux)
+{
+//copy paste de modificar ramo, supongo
+}
+
+void modificarProfesor(NodeList<Profesor>* profesores, Profesor* p_aux)
+{
+//copy paste también
+}
+
 void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, NodeList<Course>* cursos)
 {
     bool condicion = true;
@@ -247,22 +319,33 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
         switch (res) {
             case 1:
                 cout << "ingrese nombre del ramo" << endl;
-                cout << ">";
-                cin >> nombreR;
-                //
+                cout << ">";cin >> nombreR;
+                c_aux = b_cou(nombreR, cursos);
+                if(c_aux==NULL){
+                    cout<<"nothin' happened' "<<endl;
+                }
+                else{modificarRamo(cursos,c_aux);}
                 break;
 
             case 2:
                 cout << "ingrese nombre del profesor" << endl;
-                cout << ">";
-                cin >> nombreP;
-                //
+                cout << ">";cin >> nombreP;
+                p_aux = b_prof(nombreP, profesores);
+                if(p_aux==NULL){
+                    cout<<"nothin' happened' "<<endl;
+                }
+                else{modificarProfesor(profesores,p_aux);} //tambien agregar cursos
                 break;
 
             case 3:
                 cout << "ingrese nombre del Estudiante" << endl;
                 cout << ">";
                 cin >> nombreE;
+                e_aux = b_est(nombreE, estudiantes);
+                if(e_aux==NULL){
+                    cout<<"nothin' happened' "<<endl;
+                }
+                else{modificarEstudiante(estudiantes,e_aux);} //tambien agregar cursos
                 break;
 
             case 4:
