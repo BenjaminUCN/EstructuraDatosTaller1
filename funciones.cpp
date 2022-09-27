@@ -214,17 +214,13 @@ void agregar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, No
                     break;
                 }
 
-                cout << "Ingrese apellido del estudiante    \n";
-                cout << ">";
-                cin >> apellido;
-
                 cout << "Ingrese edad del estudiante    \n";
                 cout << ">";
                 cin >> edad;
 
                 e_aux = new Estudent();
                 e_aux->setName(nombre);
-                e_aux->setSurname(apellido);
+                e_aux->setSurname(surname);
                 e_aux->setAge(edad);
                 estudiantes->add(*e_aux);}
                 break;
@@ -526,6 +522,7 @@ void updateEstudent(Estudent* e){
                     e->setSemester(semester);}
                     break;
                 case 5:
+                    //verificar que courses.size > 0
                     e->mostrarRamos();
                     modifyEstudentCourses(e);
                     break;
