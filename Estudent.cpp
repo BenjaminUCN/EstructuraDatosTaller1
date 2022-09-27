@@ -92,3 +92,8 @@ void Estudent::addCourse(Course* course)
 void Estudent::removeCourse(int index){
     courses.remove(index);
 };
+
+int Estudent::coursesSize()
+{
+    return courses.size;
+};

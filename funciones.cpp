@@ -399,21 +399,6 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
 
 }
 
-string* askEstudentData(){
-    string a[2];
-
-    string name, surname;
-    cout<<"ingrese nombre del Estudiante:"<<endl;
-    cout<<">";cin>> name;
-    cout<<"ingrese apellido del Estudiante:"<<endl;
-    cout<<">";cin>> surname;
-
-    a[0] = name;
-    a[1] = surname;
-
-    return a;
-};
-
 void modifyEstudent(NodeList<Estudent>* estudiantes)
 {
     string name, surname;
