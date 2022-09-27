@@ -26,7 +26,7 @@ class Estudent
         Course* getCourse(int index);
         void addCourse(Course* course);
         void removeCourse(int index);
-        int coursesSize();
+        int getCoursesSize();
         void mostrarRamos();
 
 };

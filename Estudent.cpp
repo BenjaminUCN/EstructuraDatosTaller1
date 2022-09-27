@@ -93,7 +93,7 @@ void Estudent::removeCourse(int index){
     courses.remove(index);
 };
 
-int Estudent::coursesSize()
+int Estudent::getCoursesSize()
 {
     return courses.size;
 };

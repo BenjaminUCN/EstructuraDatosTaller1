@@ -463,11 +463,14 @@ void modifyEstudentCourses(Estudent* e)
                 /* code */
                 break;
             case 2:
-                e->mostrarRamos();
-                int courseIndex;
-                cout<<"Elija una opcion:"<<endl;
-                cout<<">";cin>> courseIndex;
-                e->removeCourse(courseIndex);
+                if(e->getCoursesSize() > 0)
+                {
+                    e->mostrarRamos();
+                    int courseIndex;
+                    cout<<"Elija una opcion:"<<endl;
+                    cout<<">";cin>> courseIndex;
+                    e->removeCourse(courseIndex);
+                }
                 break;
             default:
                 break;

@@ -65,3 +65,8 @@ void Profesor::addCourse(Course* course)
 void Profesor::removeCourse(int index){
     courses.remove(index);
 };
+
+int Profesor::getCoursesSize()
+{
+    return courses.size;
+};
