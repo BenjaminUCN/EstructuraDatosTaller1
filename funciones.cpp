@@ -292,6 +292,11 @@ void modificarRamo(NodeList<Course>* cursos, Course* c_aux)
     }
 }
 
+void eliminarRamo(NodeList<Course>* cursos, Course* c_aux)
+{
+
+}
+
 void modificarEstudiante(NodeList<Estudent>* estudiantes, Estudent* e_aux)
 {
 //copy paste de modificar ramo, supongo
@@ -308,23 +313,38 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
     do{
         cout<<"------------: MODIFICAR :------------"<<endl;
         cout<<  "Que tipo de dato desea modificar en el sistema?\n";
-        cout<<"1. Modificar datos de un ramo\n";
-        cout<<"2. Modificar datos de un Profesor\n";
-        cout<<"3. Modificar datos de un alumno\n";
+        cout<<"1. Modificar/eliminar datos de un ramo\n";
+        cout<<"2. Modificar/eliminar datos de un Profesor\n";
+        cout<<"3. Modificar/eliminar datos de un alumno\n";
         cout<<  "4. Volver al menu  \n";
         int res;
         cout<<">";cin>>res;
         string nombreR;string nombreP;string nombreE;
-
+        int eliminar;
         switch (res) {
             case 1:
-                cout << "ingrese nombre del ramo" << endl;
-                cout << ">";cin >> nombreR;
-                c_aux = b_cou(nombreR, cursos);
-                if(c_aux==NULL){
-                    cout<<"nothin' happened' "<<endl;
+                cout<<"desea editar o eliminar el ramo?"<<endl;
+                cout<<"1.editar\n 2.eliminar"<<endl;
+                cout<<">";cin>>eliminar;
+                if(eliminar==1){*/
+                    cout << "ingrese nombre del ramo a modificar" << endl;
+                    cout << ">";cin >> nombreR;
+                    c_aux = b_cou(nombreR, cursos);
+                    if(c_aux==NULL){
+                            cout<<"nothin' happened' "<<endl;
+                        }
+                        else{modificarRamo(cursos,c_aux);}
                 }
-                else{modificarRamo(cursos,c_aux);}
+                else if(eliminar==2){
+                    cout << "ingrese nombre del ramo a modificar" << endl;
+                    cout << ">";cin >> nombreR;
+                    c_aux = b_cou(nombreR, cursos);
+                    if(c_aux==NULL){
+                        cout<<"nothin' happened' "<<endl;
+                    }
+                    else{eliminarRamo(cursos,c_aux);}
+                }
+                else{cout<<"valor no valido, intente nuevamente";}
                 break;
 
             case 2:
