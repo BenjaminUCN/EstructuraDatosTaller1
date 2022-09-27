@@ -306,14 +306,74 @@ void eliminarRamo(NodeList<Course>* cursos, Course* c_aux)
     }
 }
 
-void modificarEstudiante(NodeList<Estudent>* estudiantes, Estudent* e_aux)
+void modifyProfesorCourses(Profesor* p)
 {
-//copy paste de modificar ramo, supongo
+    int op;
+    do
+    {
+        cout<<" ¿Que desea hacer?"<<endl;
+        cout<<"1. Agregar un ramo"<<endl;
+        cout<<"2. Eliminar un ramo"<<endl;
+        cout<<"3. Volver"<<endl;
+        cout<<">";cin>> op;
+
+        switch (op)
+        {
+            case 1:
+                /* code */
+                break;
+            case 2:
+                if(p->getCoursesSize() > 0)
+                {
+                    p->mostrarRamos();
+                    int courseIndex;
+                    cout<<"Elija una opcion:"<<endl;
+                    cout<<">";cin>> courseIndex;
+                    p->removeCourse(courseIndex);
+                }
+                break;
+            default:
+                break;
+        }
+    } while (op !=3);
 }
 
 void modificarProfesor(NodeList<Profesor>* profesores, Profesor* p_aux)
 {
-//copy paste también
+if(p_aux!=NULL){
+        int opcion;
+        do{
+            cout<<"------------: EDITAR DATOS :------------"<<endl;
+            cout<<  "Que tipo de dato desea editar?\n";
+            cout<<"1. Nombre\n";
+            cout<<"2. Apellido\n";
+            cout<<"3. Ramos\n";
+            cout<<"4. Volver\n";
+            cout<<">";cin>>opcion;
+
+            switch (opcion)
+            {
+                case 1:
+                {string name;
+                    cout<<"ingrese un nuevo nombre:"<<endl;
+                    cout<<">";cin>> name;
+                    p_aux->setName(name);}
+                    break;
+                case 2:
+                {string surname;
+                    cout<<"ingrese un nuevo apellido:"<<endl;
+                    cout<<">";cin>> surname;
+                    p_aux->setSurname(surname);}
+                    break;
+                case 3:
+                    modifyProfesorCourses(p_aux);
+                    break;
+                default:
+                    break;
+            }
+
+        }while(opcion !=4);
+    }
 }
 
 void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, NodeList<Course>* cursos)
@@ -408,42 +468,6 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
     }while(opcion!=7);
 
 
-}
-
-void modifyEstudent(NodeList<Estudent>* estudiantes)
-{
-    string name, surname;
-    cout<<"ingrese nombre del Estudiante:"<<endl;
-    cout<<">";cin>> name;
-    cout<<"ingrese apellido del Estudiante:"<<endl;
-    cout<<">";cin>> surname;
-
-    Estudent* e = b_est(name, surname, estudiantes);
-
-    if(e!=NULL)
-    {
-        int op;
-        do{
-            cout<<" ¿Que desea hacer?"<<endl;
-            cout<<"1. Editar datos del estudiante"<<endl;
-            cout<<"2. Eliminar el estudiante"<<endl;
-            cout<<"3. Volver"<<endl;
-            cout<<">";cin>> op;
-
-            switch (op)
-            {
-                case 1:
-                    updateEstudent(e);
-                    break;
-                case 2:
-                    //delete estudent
-                    break;
-                default:
-                    break;
-            }
-        }while (op != 3);
-
-    }
 }
 
 void modifyEstudentCourses(Estudent* e)
