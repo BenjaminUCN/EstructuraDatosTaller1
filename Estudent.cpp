@@ -63,11 +63,32 @@ void Estudent::mostrarRamos()
 {
     for (int i = 0; i < courses.size; i++)
     {
-        cout<<i+1<<". "<<courses[i]->getName()<<endl;
+        cout<<i+1<<". "<<(*courses[i])->getName()<<endl;
     }
     
 };
 
 Course* Estudent::getCourse(int index){
-    return courses[index];
+    return *courses[index];
+};
+
+void Estudent::addCourse(Course* course)
+{
+    bool exist;
+    for (int i = 0; i < courses.size; i++)
+    {
+        if(*courses[i] == course)
+        {
+            exist = true;
+        }
+    }
+
+    if(!exist && courses.size <5)
+    {
+        courses.add(course);
+    }
+};
+
+void Estudent::removeCourse(int index){
+    courses.remove(index);
 };
