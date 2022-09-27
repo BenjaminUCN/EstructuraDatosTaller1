@@ -65,7 +65,7 @@ void consulta(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, N
                 cout << ">";
                 cin >> nombre;
                 e_aux = new Estudent();
-                e_aux = b_est(nombre,"", estudiantes);
+                e_aux = b_est(nombre,"aaa", estudiantes);
                 e_aux->mostrar();
                 break;
 
