@@ -318,7 +318,7 @@ void modificarProfesor(NodeList<Profesor>* profesores, Profesor* p_aux)
 
 void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, NodeList<Course>* cursos)
 {
-    int condicion;
+    int opcion;
     do{
         cout<<"------------: MODIFICAR :------------"<<endl;
         cout<<  "Que tipo de dato desea modificar en el sistema?\n";
@@ -329,11 +329,10 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
         cout<<"5. Eliminar datos de un Profesor\n";
         cout<<"6. Eliminar datos de un Alumno\n";
         cout<<"7. Volver al menu  \n";
-        int res;
-        cout<<">";cin>>res;
+        cout<<">";cin>>opcion;
         string nombreR,nombreP,nombreE;
 
-        switch (res) {
+        switch (opcion) {
             case 1:
                 cout << "ingrese nombre del ramo" << endl;
                 cout << ">";
@@ -365,17 +364,21 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
                 break;
 
             case 4:
-                condicion = false;
-                cout << endl;
+                //
                 break;
 
             case 5:
+                //
+                break;
 
+            case 6:
+                //
+                break;
 
             default:
                 cout << "Ingrese una opción válida  \n";
         }
-    }while(condicion);
+    }while(opcion!=7);
 
 
 }
