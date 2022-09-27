@@ -135,7 +135,6 @@ void agregar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, No
 {
     bool condicion = true;
     do {
-        cout << "Posicion de estudiantes: " << estudiantes << endl;
         cout << "------------: AGREGAR :------------" << endl;
         cout << "Que tipo de dato desea agregar al sistema?\n";
         cout << "1. Agregar un ramo\n";
@@ -299,7 +298,12 @@ void modificarRamo(NodeList<Course>* cursos, Course* c_aux)
 
 void eliminarRamo(NodeList<Course>* cursos, Course* c_aux)
 {
-
+    for (int i = 0; i < cursos->size; i++) {
+        if (cursos->get(i)== c_aux)
+        {
+            cursos->remove(i);
+        }
+    }
 }
 
 void modificarEstudiante(NodeList<Estudent>* estudiantes, Estudent* e_aux)
@@ -364,7 +368,14 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
                 break;
 
             case 4:
-                //
+                cout << "ingrese nombre del ramo" << endl;
+                cout << ">";
+                cin >> nombreR;
+                c_aux = b_cou(nombreR, cursos);
+                if (c_aux == NULL) {
+                    cout << "nothin' happened' " << endl;
+                } else { eliminarRamo(cursos, c_aux); }
+                cout<<"pasa aca";
                 break;
 
             case 5:
@@ -392,7 +403,7 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
                 break;
 
             default:
-                cout << "Ingrese una opción válida  \n";
+                if (opcion!=7){cout << "Ingrese una opcion valida  \n";}
         }
     }while(opcion!=7);
 
