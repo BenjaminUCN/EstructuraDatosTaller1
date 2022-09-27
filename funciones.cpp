@@ -318,7 +318,7 @@ void modificarProfesor(NodeList<Profesor>* profesores, Profesor* p_aux)
 
 void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, NodeList<Course>* cursos)
 {
-    bool condicion = true;
+    int condicion;
     do{
         cout<<"------------: MODIFICAR :------------"<<endl;
         cout<<  "Que tipo de dato desea modificar en el sistema?\n";
@@ -336,22 +336,22 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
         switch (res) {
             case 1:
                 cout << "ingrese nombre del ramo" << endl;
-                cout << ">";cin >> nombreR;
+                cout << ">";
+                cin >> nombreR;
                 c_aux = b_cou(nombreR, cursos);
-                if(c_aux==NULL){
-                    cout<<"nothin' happened' "<<endl;
-                }
-                else{modificarRamo(cursos,c_aux);}
+                if (c_aux == NULL) {
+                    cout << "nothin' happened' " << endl;
+                } else { modificarRamo(cursos, c_aux); }
                 break;
 
             case 2:
                 cout << "ingrese nombre del profesor" << endl;
-                cout << ">";cin >> nombreP;
+                cout << ">";
+                cin >> nombreP;
                 p_aux = b_prof(nombreP, profesores);
-                if(p_aux==NULL){
-                    cout<<"nothin' happened' "<<endl;
-                }
-                else{modificarProfesor(profesores,p_aux);} //tambien agregar cursos
+                if (p_aux == NULL) {
+                    cout << "nothin' happened' " << endl;
+                } else { modificarProfesor(profesores, p_aux); } //tambien agregar cursos
                 break;
 
             case 3:
@@ -359,16 +359,18 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
                 cout << ">";
                 cin >> nombreE;
                 e_aux = b_est(nombreE, estudiantes);
-                if(e_aux==NULL){
-                    cout<<"nothin' happened' "<<endl;
-                }
-                else{modificarEstudiante(estudiantes,e_aux);} //tambien agregar cursos
+                if (e_aux == NULL) {
+                    cout << "nothin' happened' " << endl;
+                } else { modificarEstudiante(estudiantes, e_aux); } //tambien agregar cursos
                 break;
 
             case 4:
                 condicion = false;
                 cout << endl;
                 break;
+
+            case 5:
+
 
             default:
                 cout << "Ingrese una opción válida  \n";
