@@ -354,13 +354,17 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
                 break;
 
             case 3:
-                cout << "ingrese nombre del Estudiante" << endl;
-                cout << ">";
-                cin >> nombreE;
-                e_aux = b_est(nombreE, estudiantes);
-                if (e_aux == NULL) {
-                    cout << "nothin' happened' " << endl;
-                } else { modificarEstudiante(estudiantes, e_aux); } //tambien agregar cursos
+                {string name, surname;
+                cout<<"ingrese nombre del Estudiante:"<<endl;
+                cout<<">";cin>> name;
+                cout<<"ingrese apellido del Estudiante:"<<endl;
+                cout<<">";cin>> surname;
+
+                Estudent* e = b_est(name, surname, estudiantes);
+
+                if(e!=NULL){
+                    updateEstudent(e);
+                }}
                 break;
 
             case 4:
@@ -372,7 +376,23 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
                 break;
 
             case 6:
-                //
+                {string name, surname;
+                cout<<"ingrese nombre del Estudiante:"<<endl;
+                cout<<">";cin>> name;
+                cout<<"ingrese apellido del Estudiante:"<<endl;
+                cout<<">";cin>> surname;
+
+                Estudent* e = b_est(name, surname, estudiantes);
+
+                if(e!=NULL){
+                    for (int i = 0; i < estudiantes->size; i++)
+                    {
+                        if((*estudiantes)[i] == e){
+                            estudiantes->remove(i);
+                        }
+                    }
+                    
+                }}
                 break;
 
             default:
