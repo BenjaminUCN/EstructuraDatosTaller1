@@ -70,11 +70,20 @@ class NodeList
         };
         void remove(int index)
         {
-            get(index-1);
-            Nodo<T> *previus_node = lastGet;
-            Nodo<T> *remove_node = previus_node->next;
-            previus_node->next = remove_node->next;
-            delete remove_node;
-            size--;
+            if(index==0){
+                Nodo<T> *remove_node = first;
+                first = first->next;
+                delete remove_node;
+                size--;
+            }
+            else{
+                get(index-1);
+                Nodo<T> *previus_node = lastGet;
+                Nodo<T> *remove_node = previus_node->next;
+                previus_node->next = remove_node->next;
+                delete remove_node;
+                size--;
+            }
+
         };
 };
