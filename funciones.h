@@ -4,7 +4,7 @@
 #pragma once
 using namespace std;
 
-void updateEstudent(NodeList<Estudent>* estudiantes);
+void updateEstudent(NodeList<Estudent>* estudiantes,NodeList<Course>*);
 
 void consulta(NodeList<Estudent>*, NodeList<Profesor>*, NodeList<Course>*);
 

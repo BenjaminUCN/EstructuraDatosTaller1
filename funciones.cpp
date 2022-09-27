@@ -15,8 +15,7 @@ Course* c_aux = NULL;
 string nombre, apellido, sala, carrera;
 int res, edad, semestre;
 
-void updateEstudent(Estudent* e);
-void modifyEstudent(NodeList<Estudent>* estudiantes);
+void updateEstudent(Estudent* e, NodeList<Course>*);
 
 Estudent* b_est(string name, string surname, NodeList<Estudent>* estudiantes)
 {
@@ -423,7 +422,7 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
                 Estudent* e = b_est(name, surname, estudiantes);
 
                 if(e!=NULL){
-                    updateEstudent(e);
+                    updateEstudent(e,cursos);
                 }}
                 break;
 
@@ -470,7 +469,7 @@ void modificar(NodeList<Estudent>* estudiantes, NodeList<Profesor>* profesores, 
 
 }
 
-void modifyEstudentCourses(Estudent* e)
+void modifyEstudentCourses(Estudent* e, NodeList<Course>* cursos)
 {
     int op;
     do
@@ -484,7 +483,19 @@ void modifyEstudentCourses(Estudent* e)
         switch (op)
         {
             case 1:
-                /* code */
+                if(cursos->size>0){
+                    for(int i=0;cursos->size>i;i++){
+                        cout<<i+1<<") ";cursos->get(i)->mostrar();
+                    }
+                    cout<<"que curso desea agregar?"<<endl;
+                    int respuesta; cout<<">";cin>>respuesta; respuesta--;
+                    if(respuesta>=0 && respuesta<cursos->size){
+
+                        e->addCourse(cursos->get(respuesta));
+                    }
+                    else{cout<<"numero no valido"<<endl;}
+                }
+                else{cout<<"no existen cursos en el sistema"<<endl;}
                 break;
             case 2:
                 if(e->getCoursesSize() > 0)
@@ -492,9 +503,10 @@ void modifyEstudentCourses(Estudent* e)
                     e->mostrarRamos();
                     int courseIndex;
                     cout<<"Elija una opcion:"<<endl;
-                    cout<<">";cin>> courseIndex;
+                    cout<<">";cin>> courseIndex;courseIndex--;
                     e->removeCourse(courseIndex);
                 }
+                else{cout<<"el estudiante no tiene cursos anadidos"<<endl;}
                 break;
             default:
                 break;
@@ -503,7 +515,7 @@ void modifyEstudentCourses(Estudent* e)
 
 }
 
-void updateEstudent(Estudent* e){
+void updateEstudent(Estudent* e, NodeList<Course>* cursos){
     if(e!=NULL){
         int opcion;
         do{
@@ -547,7 +559,7 @@ void updateEstudent(Estudent* e){
                 case 5:
                     //verificar que courses.size > 0
                     e->mostrarRamos();
-                    modifyEstudentCourses(e);
+                    modifyEstudentCourses(e,cursos);
                     break;
                 default:
                     break;
